@@ -12,10 +12,10 @@
 
 
 </head>
- <body class="font-['Quicksand'] bg-[#FFFCF5]" >
+ <body class="font-['Quicksand'] bg-[#FFFCF5] overflow-x-hidden" >
 
 <!-- Navbar -->
-<div class=" sticky top-0 bg-white  text-black p-1 z-10 shadow-md mx-auto">
+<div class=" sticky top-0 bg-white w-screen  text-black p-1 z-10 shadow-md mx-auto">
     <div class="container m-0 flex justify-between items-center">
         <!-- Logo -->
         <img src="img/logo.png" class="w-20 h-20 left-1" alt="">
@@ -286,7 +286,7 @@
 
 <!-- Footer -->
 <section>
-    <footer class="bg-white text-black py-[20px] px-[20px] mt-[80px] shadow-md">
+    <footer class="bg-white text-black py-[20px] px-[20px] mt-[80px] shadow-md w-screen">
         <div class="container ml-5">
             <div class="flex justify-between ">
                 <div>
