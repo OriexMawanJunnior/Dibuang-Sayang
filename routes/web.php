@@ -16,3 +16,19 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('layout/landing');
 });
+
+Route::prefix('auth')->group(function () {
+    Route::get('login/{role}', [AuthController::class, 'login'])->name('auth.login');
+    Route::post('login/{role}', [AuthController::class, 'authenticate'])->name('auth.authenticate');
+    Route::get('register/{role}', [AuthController::class, 'register'])->name('auth.register');
+    Route::post('register/{role}', [AuthController::class, 'store'])->name('auth.store');
+    Route::post('logout/{role}', [AuthController::class, 'logout'])->name('auth.logout');
+
+    Route::get('forgot-password/{role}', [AuthController::class, 'forgotPassword'])->name('auth.forgot-password');
+    Route::post('forgot-password/{role}', [AuthController::class, 'sendResetLinkEmail'])->name('auth.password.email');
+    Route::get('reset-password/{role}', [AuthController::class, 'resetPassword'])->name('auth.password.reset');
+    Route::post('reset-password/{role}', [AuthController::class, 'resetPassword'])->name('auth.password.update');
+
+    Route::get('google/{role}', [GoogleController::class, 'redirectToGoogle'])->name('auth.google.redirect');
+    Route::get('google/{role}/callback', [GoogleController::class, 'handleGoogleCallback'])->name('auth.google.callback');
+});
