@@ -22,20 +22,20 @@
         <!-- Navbar Links -->
         <nav class="-mr-[270px]">
             <ul class="flex space-x-[50px] ">
-                <li><a href="#" class="hover:text-[#895159] hover:font-bold">Beranda</a></li>
+                <li><a href="/" class="hover:text-[#895159] hover:font-bold">Beranda</a></li>
                 <li><a href="#" class="hover:text-[#895159] hover:font-bold">Belanja</a></li>
                 <li><a href="#" class="hover:text-[#895159] hover:font-bold">Tentang Kami</a></li>
                 <li><a href="#" class="hover:text-[#895159] hover:font-bold">Mitra</a></li>
                 <li><a href="#" class="hover:text-[#895159] hover:font-bold">Penilaian</a></li>
-                <li><a href="#" class="hover:text-[#895159] hover:font-bold">FAQ</a></li>
-                <li><a href="#"><img src="img/profile.png"  class="w-10 h-10" alt=""></a></li>
+                <li><a href="faq" class="hover:text-[#895159] hover:font-bold">FAQ</a></li>
+                <li><a href="sign_in"><img src="img/profile.png"  class="w-10 h-10 hover:w-14 hover:h-14" alt=""></a></li>
             </ul>
         </nav>
     </div>
 </div>
 
 <div class="container flex justify-center mx-auto">
-    <form action="#" method="POST" class="flex items-center mt-5 m">
+    <form action="#" method="" class="flex items-center mt-5 m">
         @csrf
         <img src="img/search-magn.png" alt="" class="relative left-[40px] -bottom-[3px] w-[30px] h-[30px] ">
         <input type="text" name="query" placeholder="Search..." class="pl-12 rounded-xl  border-t mr-1 border-b border-l text-gray-800 border-gray-200 bg-white shadow-md w-[1000px] h-[60px]">
