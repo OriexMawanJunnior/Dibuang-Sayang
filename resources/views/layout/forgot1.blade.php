@@ -15,7 +15,7 @@
  <body class="font-['Quicksand'] bg-[#FFFCF5] overflow-hidden" >
 
     <div class="flex justify-center">
-        <form action="" method="post">
+        <form action="" method="">
         <div class="Forgot1 w-[1440px] h-[1024px] relative bg-stone-50">
 
             <div class="KotakMasuk w-[500px] h-[395px] left-[840px] top-[314px] absolute">
@@ -26,10 +26,9 @@
                 <input placeholder="Masukkan Email Anda" type="text" class="Rectangle2 w-[445px] h-[59px] left-0 top-[32px] absolute bg-white rounded-[10px] border border-neutral-400 text-black/opacity-50 text-lg font-normal font-['Quicksand'] px-4">
               </div>
               <div class="LoginTombol w-[445px] h-[59px] left-[28px] top-[281px] absolute">
-                <a href="forgot2">
-                <button  class="Rectangle2 w-[445px] h-[59px] left-0 top-0 absolute bg-red-300 rounded-[10px] border border-neutral-400 hover:bg-red-400">
-                    <div class="Berikutnya left-[174px] top-[15px] absolute text-center text-black text-xl font-medium">Berikutnya</div>
-                </button>
+                <a href="forgot2" class="Rectangle2 w-[445px] h-[59px] left-0 top-0 absolute bg-red-300 rounded-[10px] border border-neutral-400 hover:bg-red-400">
+                        <div class="Berikutnya left-[174px] top-[15px] absolute text-center text-black text-xl font-medium">Berikutnya</div>
+
                 </a>
               </div>
             </div>

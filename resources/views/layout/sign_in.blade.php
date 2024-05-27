@@ -32,7 +32,7 @@
             <div class="left-0 top-0 absolute text-black text-base font-semibold font-['Quicksand']">Kata Sandi</div>
             <input type="password" id="password" name="query" placeholder="Masukkan Kata Sandi Anda" class="w-[445px] h-[59px] left-0 top-[32px] absolute bg-white rounded-[10px] border border-neutral-400 px-4">
             <div class="w-6 h-6 left-[389px] top-[49px] absolute">
-                <button type="button"  onclick="togglePasswordVisibility()">
+                <button onclick="togglePasswordVisibility()">
 
               <img class="w-[20px] h-[20px] left-[2.73px] top-[5.50px] absolute" src="img/seepass.png" />
             </button>

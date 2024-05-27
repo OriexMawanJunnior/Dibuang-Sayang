@@ -37,4 +37,8 @@ Route::get('forgot2', function () {
     return view('layout/forgot2');
 });
 
+Route::get('shop', function () {
+    return view('layout/shop');
+});
+
 
