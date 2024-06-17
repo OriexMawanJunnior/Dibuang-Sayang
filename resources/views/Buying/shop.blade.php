@@ -21,7 +21,7 @@
         <nav class="-mr-[270px]">
             <ul class="flex space-x-[50px] ">
                 <li><a href="/" class="hover:text-[#895159] hover:font-bold">Beranda</a></li>
-                <li><a href="#" class="hover:text-[#895159] hover:font-bold">Belanja</a></li>
+                <li><a href="#" class="text-[#895159] font-bold">Belanja</a></li>
                 <li><a href="#" class="hover:text-[#895159] hover:font-bold">Tentang Kami</a></li>
                 <li><a href="#" class="hover:text-[#895159] hover:font-bold">Mitra</a></li>
                 <li><a href="#" class="hover:text-[#895159] hover:font-bold">Penilaian</a></li>
@@ -197,7 +197,7 @@
       </div>
     </div>
     <button class="PrimaryButton hover:bg-indigo-950 w-[162px] h-[52px] px-3 left-[1138px] top-[16px] absolute bg-indigo-900 rounded-[10px] flex-col justify-center items-center gap-[5px] inline-flex">
-      <div class="SeeMore text-center text-slate-300 text-sm font-semibold font-['Quicksand'] leading-[14px]">Semua</div>
+      <div class="SeeMore text-center text-slate-300 text-sm font-semibold font-['Quicksand'] leading-[14px]"><a href="kategori">Semua</a></div>
     </button>
   </div>
 </div>

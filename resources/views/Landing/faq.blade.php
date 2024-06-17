@@ -14,6 +14,8 @@
 </head>
  <body class="font-['Quicksand'] bg-[#FFFCF5] overflow-x-hidden" >
 
+
+
 <!-- Navbar -->
 <div class=" sticky top-0 bg-white w-screen  text-black p-1 z-10 shadow-md mx-auto">
     <div class="container m-0 flex justify-between items-center">
@@ -23,11 +25,11 @@
         <nav class="-mr-[270px]">
             <ul class="flex space-x-[50px] ">
                 <li><a href="/" class="hover:text-[#895159] hover:font-bold">Beranda</a></li>
-                <li><a href="#" class="hover:text-[#895159] hover:font-bold">Belanja</a></li>
+                <li><a href="shop" class="hover:text-[#895159] hover:font-bold">Belanja</a></li>
                 <li><a href="#" class="hover:text-[#895159] hover:font-bold">Tentang Kami</a></li>
                 <li><a href="#" class="hover:text-[#895159] hover:font-bold">Mitra</a></li>
                 <li><a href="#" class="hover:text-[#895159] hover:font-bold">Penilaian</a></li>
-                <li><a href="faq" class="hover:text-[#895159] hover:font-bold">FAQ</a></li>
+                <li><a href="faq" class="text-[#895159] font-bold">FAQ</a></li>
                 <li><a href="#"><img src="img/profile.png"  class="w-10 h-10" alt=""></a></li>
             </ul>
         </nav>

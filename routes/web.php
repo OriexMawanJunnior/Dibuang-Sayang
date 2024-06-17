@@ -14,31 +14,39 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('layout/landing');
+    return view('Landing/landing');
 });
 
 Route::get('faq', function () {
-    return view('layout/faq');
+    return view('Landing/faq');
 });
 
 Route::get('sign_in', function () {
-    return view('layout/sign_in');
+    return view('UserEntry/sign_in');
 });
 
 Route::get('sign_up', function () {
-    return view('layout/sign_up');
+    return view('UserEntry/sign_up');
 });
 
 Route::get('forgot1', function () {
-    return view('layout/forgot1');
+    return view('UserEntry/forgot1');
 });
 
 Route::get('forgot2', function () {
-    return view('layout/forgot2');
+    return view('UserEntry/forgot2');
 });
 
 Route::get('shop', function () {
-    return view('layout/shop');
+    return view('Buying/shop');
+});
+
+Route::get('kategori', function () {
+    return view('Buying/kategori');
+});
+
+Route::get('detail', function () {
+    return view('Buying/prod_detail');
 });
 
 
