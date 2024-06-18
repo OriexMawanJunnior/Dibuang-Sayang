@@ -24,10 +24,10 @@ Route::get('/', function () {
     return view('dashboard');
 });
 
-Route::middleware(['auth', 'role:admin'])->group(function () {
+Route::middleware(['auth'])->group(function () {
     Route::get('/admin/dashboard', [AdminController::class, 'index'])->name('admin.dashboard');
 });
-Route::middleware(['auth', 'role:seller'])->name('seller.')->prefix('seller')->group(function () {
+Route::middleware(['auth'])->name('seller.')->prefix('seller')->group(function () {
     Route::get('/', [SellerController::class, 'index'])->name('dashboard');
     
     Route::get('/store/profile', [StoreController::class, 'showProfile'])->name('store.profile');
@@ -40,7 +40,7 @@ Route::middleware(['auth', 'role:seller'])->name('seller.')->prefix('seller')->g
 });
 
 
-Route::middleware(['auth', 'role:buyer'])->group(function () {
+Route::middleware(['auth'])->group(function () {
     Route::get('/dashboard', [BuyerController::class, 'index'])->name('dashboard');
     Route::get('/shop', [BuyerController::class, 'showShop'])->name('shop');
 });

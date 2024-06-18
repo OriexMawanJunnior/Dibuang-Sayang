@@ -236,7 +236,7 @@
                 <div class="text-[#895159] text-[25px] font-normal font-['Quicksand'] flex justify-center">Pengalaman mereka bersama 
                 <span class="text-[#895159] text-[25px] font-bold font-['Quicksand']"> SayangDibuang</span>
                 </div>
-                <div class="flex justify-between gap-5 mt-10">
+                <div class="flex justify-between gap-5 mt-10 font-['Quicksand']">
                   <div class="bg-[#DFAEA1] rounded-[10px] px-10 py-24">
                     <p class="text-black text-[20px] font-normal text-center">“Suka banget sama aplikasinya! bisa dapet makanan enak tapi harganya murah >_<”</p>
                     <p class="text-black text-[20px] font-normal text-center">~ Sasha ~</p>
