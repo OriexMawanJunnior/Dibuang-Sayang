@@ -5,20 +5,9 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\BuyerController;
 use App\Http\Controllers\StoreController;
 use App\Http\Controllers\SellerController;
+use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProfileController;
-
-
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider and all of them will
-| be assigned to the "web" middleware group. Make something great!
-|
-*/
 
 Route::get('/', function () {
     return view('dashboard');
@@ -43,6 +32,10 @@ Route::middleware(['auth', 'role:seller'])->name('seller.')->prefix('seller')->g
 Route::middleware(['auth', 'role:buyer'])->group(function () {
     Route::get('/dashboard', [BuyerController::class, 'index'])->name('dashboard');
     Route::get('/shop', [BuyerController::class, 'showShop'])->name('shop');
+    Route::get('/search', [BuyerController::class, 'search'])->name('shop.search');
+    Route::get('/shop/{id}', [BuyerController::class, 'show'])->name('products.show');
+    Route::get('/payment/{id}', [PaymentController::class, 'payment'])->name('payment');
+    Route::post('/payment', [PaymentController::class, 'pay'])->name('pay');
 });
 
 Route::middleware('auth')->group(function () {

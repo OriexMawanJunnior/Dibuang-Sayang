@@ -44,6 +44,7 @@
           <div class="text-indigo-900 text-[35px] font-bold font-['Quicksand']">
               Di Sekitarmu
           </div>
+
           <div class="text-indigo-900 text-[25px] font-normal font-['Quicksand'] mb-8">
               Lihat sekitar, ada makanan yang bisa kita selamatkan!
           </div>
@@ -57,7 +58,7 @@
     </div>
 </div>
 
-          
+
         </div>
       </div>
     </div>
