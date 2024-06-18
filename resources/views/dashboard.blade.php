@@ -53,23 +53,7 @@
           <div class="w-60 h-[52px] px-3 left-[530px] top-[593px] absolute bg-indigo-900 rounded-[10px] flex-col justify-center items-center gap-[5px] inline-flex hover:bg-indigo-950">
             <button class="text-center text-slate-300 text-sm font-semibold font-['Quicksand'] leading-[14px]">Mulai Berbelanja</button>
           </div>
-          @foreach($products as $product)
-                        @php
-                            $imageUrl = $product->getFirstMediaUrl('products') ?: 'https://via.placeholder.com/269x200';
-                        @endphp
-                        <x-product-card
-                            image="{{ asset($imageUrl) }}"
-                            discount="50%"
-                            title="{{ $product->name }}"
-                            distance="1.05 km"
-                            store="{{ $product->store->name }}"
-                            rating="5.0"
-                            reviews="10"
-                            originalPrice="{{ $product->price }}"
-                            discountedPrice="{{ $product->discounted_price }}"
-                            id="{{ $product->id }}"
-                        />
-                    @endforeach
+         
         </div>
       </div>
     </div>
