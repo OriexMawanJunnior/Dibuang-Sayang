@@ -144,8 +144,8 @@
                             </table>
                             <!-- Dropdown Content -->
                             <ul x-show="open" class="pl-8 space-y-2">
-                                <li><a href="#" class="block text-black text-xl font-normal">Produk Saya</a></li>
-                                <li><a href="#" class="block text-black text-xl font-normal">Tambah Produk Baru</a></li>
+                                <li><a href="{{route('seller.product.index')}}" class="block text-black text-xl font-normal">Produk Saya</a></li>
+                                <li><a href="{{route('seller.product.create')}}" class="block text-black text-xl font-normal">Tambah Produk Baru</a></li>
                             </ul>
                         </li>
                         

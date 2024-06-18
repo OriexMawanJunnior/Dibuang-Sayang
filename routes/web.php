@@ -21,12 +21,8 @@ use App\Http\Controllers\ProfileController;
 */
 
 Route::get('/', function () {
-    return view('welcome');
-});
-
-Route::get('/dashboard', function () {
     return view('dashboard');
-})->middleware(['auth'])->name('dashboard');
+});
 
 Route::middleware(['auth', 'role:admin'])->group(function () {
     Route::get('/admin/dashboard', [AdminController::class, 'index'])->name('admin.dashboard');
@@ -44,8 +40,9 @@ Route::middleware(['auth', 'role:seller'])->name('seller.')->prefix('seller')->g
 });
 
 
-Route::middleware(['auth:sanctum', 'verified', 'role:buyer'])->group(function () {
-    Route::get('buyer/dashboard', [BuyerController::class, 'index'])->name('buyer.dashboard');
+Route::middleware(['auth', 'role:buyer'])->group(function () {
+    Route::get('/dashboard', [BuyerController::class, 'index'])->name('dashboard');
+    Route::get('/shop', [BuyerController::class, 'showShop'])->name('shop');
 });
 
 Route::middleware('auth')->group(function () {
