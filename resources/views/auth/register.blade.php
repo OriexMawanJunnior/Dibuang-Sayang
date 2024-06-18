@@ -1,14 +1,16 @@
 <x-guest-layout>
     <form method="POST" action="{{ route('register') }}">
         @csrf
-        <div class="SignUpPage min-h-screen w-fit flex flex-row items-center justify-center bg-stone-50">
+        <div class="flex justify-center items-center">
+          <div class="text-[#374375] text-[40px] font-bold mb-8 mt-10">SayangDibuang</div>
+        </div>
+        <div class="SignUpPage min-h-screen w-fit flex flex-row items-center justify-center">
             <div class="flex flex-col items-center mb-8 mr-10">
               <img class="w-[530px] h-[530px] mb-8" src="img/image_design2.png" />
-              <div class="text-center text-indigo-900 text-[40px] font-bold mb-4">SayangDibuang</div>
-              <div class="text-center text-indigo-900 text-[50px] font-semibold">“Sustainability Starts on Your Plate”</div>
+              <div class="text-center text-[#374375] text-[50px] font-semibold">“Sustainability Starts on Your Plate”</div>
             </div>
           
-            <div class="KotakDaftar w-[500px] bg-white rounded-[10px] shadow-xl mt-8 p-8">
+            <div class="KotakDaftar w-[500px] bg-white rounded-[10px] shadow-xl mt-3 mr-10 mb-8 p-8">
               <div class="text-black text-[35px] font-bold mb-8">Daftar</div>
               <div class="space-y-6">
                 <div>
@@ -41,18 +43,18 @@
                     </button>
                   </div>
                 </div>
-                <button type="submit" class="w-full h-[59px] bg-red-300 rounded-[10px] border border-neutral-400 hover:bg-red-400 text-black text-xl font-medium">Daftar</button>
+                <button type="submit" class="w-full h-[59px] bg-[#DFAEA1] rounded-[10px] border border-neutral-400 hover:bg-red-400 text-black text-xl font-medium">Daftar</button>
                 <div class="text-center text-stone-400 text-base font-normal">atau daftar dengan</div>
-                <div class="flex items-center space-x-4 justify-center">
+                <!-- <div class="flex items-center space-x-4 justify-center">
                   <div class="w-[115px] border border-stone-400"></div>
                   <div class="w-[115px] border border-stone-400"></div>
-                </div>
+                </div> -->
                 <a href="{{ route('auth.google.redirect') }}" class="w-full h-[59px] rounded-[10px] border border-neutral-400 hover:bg-gray-400 flex items-center justify-center">
                   <img src="img/logog.png" class="w-10 h-10 mr-4" alt="">
                   <div class="text-black text-xl font-medium">Daftar dengan Google</div>
                 </a>
                 <a href="{{ route('login') }}" class="text-center hover:underline">
-                  <div class="text-black text-base font-normal">Sudah memiliki akun? <span class="text-stone-500 text-base font-bold">Masuk</span></div>
+                  <div class="text-black text-base font-normal mt-5">Sudah memiliki akun? <span class="text-[#895159] text-base font-bold">Masuk</span></div>
                 </a>
               </div>
             </div>

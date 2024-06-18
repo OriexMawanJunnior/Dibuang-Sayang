@@ -4,18 +4,20 @@
 
     <form method="POST" action="{{ route('login') }}">
         @csrf
-        <div class="min-h-screen w-fit flex flex-row items-center justify-center bg-gray-100">
-            <div class="flex flex-col items-center mr-10">
+        <div class="flex justify-center items-center">
+          <div class="text-[#374375] text-[40px] font-bold mb-8 mt-10">SayangDibuang</div>
+        </div>
+        <div class="min-h-screen flex flex-row items-center justify-center">
+            <div class="flex flex-col items-center flex-justify-center mr-10 mt-10">
               <img class="w-[500px] h-[468.18px] mb-8" src="img/image_design1.png" />
-              <div class="text-center text-indigo-900 text-[40px] font-bold mb-8">SayangDibuang</div>
-              <div class="text-center text-indigo-900 text-[50px] font-semibold">“Sustainability Starts on Your Plate”</div>
+              <div class="text-center text-[#374375] text-[50px] font-semibold">“Sustainability Starts on Your Plate”</div>
             </div>
           
-            <div class="w-[500px] bg-white rounded-[10px] shadow-xl mt-8 p-8">
+            <div class="w-[500px] bg-white rounded-[10px] shadow-xl mt-3 mr-10 mb-8 p-8">
               <div class="flex justify-between">
                   <div class="text-black text-[35px] font-bold mb-8">Masuk</div>
                   <div class="text-right hover:underline flex item-center justify-center">
-                    <a href="" class="text-black text-base font-normal">Masuk Sebagai <span class="text-stone-500 text-base font-semibold">Mitra</span></a>
+                    <!-- <a href="" class="text-black text-base font-normal">Masuk Sebagai <span class="text-stone-500 text-base font-semibold">Mitra</span></a> -->
                   </div>
               </div>
               <div class="space-y-6">
@@ -46,13 +48,13 @@
                   @endif
                 </div>
           
-                <button class="w-full h-[59px] bg-red-300 rounded-[10px] border border-neutral-400 hover:bg-red-400 text-black text-xl font-medium">Masuk</button>
+                <button class="w-full h-[59px] bg-[#DFAEA1] rounded-[10px] border border-neutral-400 hover:bg-red-400 text-black text-xl font-medium">Masuk</button>
           
                 <div class="text-center text-stone-400 text-base font-normal mt-6">atau masuk dengan</div>
-                <div class="flex items-center space-x-4 justify-center mt-2">
+                <!-- <div class="flex items-center space-x-4 justify-center mt-2">
                   <div class="w-[115px] border border-stone-400"></div>
                   <div class="w-[115px] border border-stone-400"></div>
-                </div>
+                </div> -->
           
                 <a href="{{ route('auth.google.redirect') }}" class="w-full h-[59px] rounded-[10px] border border-neutral-400 hover:bg-gray-400 flex items-center justify-center mt-6">
                   <img src="img/logog.png" class="w-10 h-10 mr-4" alt="">
@@ -61,7 +63,7 @@
           
                 <div class="text-center mt-8">
                   <a href="{{route('register')}}" class="text-black text-base font-normal hover:underline">
-                    Belum memiliki akun? <span class="text-stone-500 text-base font-bold">Daftar</span>
+                    Belum memiliki akun? <span class="text-[#895159] text-base font-bold">Daftar</span>
                   </a>
                 </div>
               </div>

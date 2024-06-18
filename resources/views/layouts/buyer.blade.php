@@ -8,12 +8,15 @@
         <title>{{ config('app.name', 'Sayang Dibuang') }}</title>
 
         <!-- Fonts -->
+
         <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap" rel="stylesheet">
 
         <!-- Scripts -->
         @vite(['resources/css/app.css', 'resources/js/app.js'])
     </head>
-    <body class="font-['Quicksand']">
+
+    <body class="font-['Quicksand']" style="background-color: #FFFCF5;">
+
         <div class="h-full bg-gray-100 dark:bg-gray-900">
             @include('layouts.navigation')
             
@@ -28,7 +31,7 @@
             @endif
 
             <!-- Page Content -->
-            <main>
+            <main class="bg-[#FFFCF5]">
                 {{ $slot }}
             </main>
         </div>
