@@ -1,6 +1,13 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AdminController;
+use App\Http\Controllers\BuyerController;
+use App\Http\Controllers\StoreController;
+use App\Http\Controllers\SellerController;
+use App\Http\Controllers\ProductController;
+use App\Http\Controllers\ProfileController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -14,43 +21,37 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('layout/landing');
+    return view('welcome');
 });
 
-Route::get('faq', function () {
-    return view('layout/faq');
+Route::get('/dashboard', function () {
+    return view('dashboard');
+})->middleware(['auth'])->name('dashboard');
+
+Route::middleware(['auth', 'role:admin'])->group(function () {
+    Route::get('/admin/dashboard', [AdminController::class, 'index'])->name('admin.dashboard');
+});
+Route::middleware(['auth', 'role:seller'])->name('seller.')->prefix('seller')->group(function () {
+    Route::get('/', [SellerController::class, 'index'])->name('dashboard');
+    
+    Route::get('/store/profile', [StoreController::class, 'showProfile'])->name('store.profile');
+    Route::post('/store/profile', [StoreController::class, 'updateProfile'])->name('store.profile.update');
+
+    Route::get('/store/address', [StoreController::class, 'showAddress'])->name('store.address');
+    Route::post('/store/address', [StoreController::class, 'updateAddress'])->name('store.address.update');
+
+    Route::resource('/product', ProductController::class);
 });
 
-Route::get('sign_in', function () {
-    return view('layout/sign_in');
+
+Route::middleware(['auth:sanctum', 'verified', 'role:buyer'])->group(function () {
+    Route::get('buyer/dashboard', [BuyerController::class, 'index'])->name('buyer.dashboard');
 });
 
-Route::get('sign_up', function () {
-    return view('layout/sign_up');
+Route::middleware('auth')->group(function () {
+    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
+    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
+    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-Route::get('forgot1', function () {
-    return view('layout/forgot1');
-});
-
-Route::get('forgot2', function () {
-    return view('layout/forgot2');
-});
-
-
-
-Route::prefix('auth')->group(function () {
-    Route::get('login/{role}', [AuthController::class, 'login'])->name('auth.login');
-    Route::post('login/{role}', [AuthController::class, 'authenticate'])->name('auth.authenticate');
-    Route::get('register/{role}', [AuthController::class, 'register'])->name('auth.register');
-    Route::post('register/{role}', [AuthController::class, 'store'])->name('auth.store');
-    Route::post('logout/{role}', [AuthController::class, 'logout'])->name('auth.logout');
-
-    Route::get('forgot-password/{role}', [AuthController::class, 'forgotPassword'])->name('auth.forgot-password');
-    Route::post('forgot-password/{role}', [AuthController::class, 'sendResetLinkEmail'])->name('auth.password.email');
-    Route::get('reset-password/{role}', [AuthController::class, 'resetPassword'])->name('auth.password.reset');
-    Route::post('reset-password/{role}', [AuthController::class, 'resetPassword'])->name('auth.password.update');
-
-    Route::get('google/{role}', [GoogleController::class, 'redirectToGoogle'])->name('auth.google.redirect');
-    Route::get('google/{role}/callback', [GoogleController::class, 'handleGoogleCallback'])->name('auth.google.callback');
-});
+require __DIR__.'/auth.php';
