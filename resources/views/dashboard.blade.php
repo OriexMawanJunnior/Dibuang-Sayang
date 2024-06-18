@@ -54,39 +54,22 @@
             <button class="text-center text-slate-300 text-sm font-semibold font-['Quicksand'] leading-[14px]">Mulai Berbelanja</button>
           </div>
           @foreach($products as $product)
-            <div class="flex flex-row">
-              @if($product->getFirstMedia('products'))
-                  @php
-                      $mediaItem = $product->getFirstMedia('products');
-                      $imageUrl = $mediaItem->getUrl();
-                  @endphp
-                  <x-product-card
-                      image="{{ asset($imageUrl) }}"
-                      discount="50%" {{-- Ganti dengan diskon produk --}}
-                      title="{{ $product->name }}" {{-- Ganti dengan nama produk --}}
-                      distance="1.05 km" {{-- Ganti dengan jarak --}}
-                      store="{{ $product->store->name }}" {{-- Ganti dengan nama toko --}}
-                      rating="5.0" {{-- Ganti dengan rating --}}
-                      reviews="10" {{-- Ganti dengan jumlah review --}}
-                      originalPrice="{{ $product->price }}" {{-- Ganti dengan harga asli --}}
-                      discountedPrice="{{ $product->discounted_price }}" {{-- Ganti dengan harga setelah diskon --}}
-                  />
-              @else
-                  {{-- Tampilkan placeholder atau pesan jika tidak ada gambar --}}
-                  <x-product-card
-                      image="https://via.placeholder.com/269x200"
-                      discount="50%" {{-- Ganti dengan diskon produk --}}
-                      title="{{ $product->name }}" {{-- Ganti dengan nama produk --}}
-                      distance="1.05 km" {{-- Ganti dengan jarak --}}
-                      store="{{ $product->store->name }}" {{-- Ganti dengan nama toko --}}
-                      rating="5.0" {{-- Ganti dengan rating --}}
-                      reviews="10" {{-- Ganti dengan jumlah review --}}
-                      originalPrice="{{ $product->price }}" {{-- Ganti dengan harga asli --}}
-                      discountedPrice="{{ $product->discounted_price }}" {{-- Ganti dengan harga setelah diskon --}}
-                  />
-              @endif
-            </div>
-      @endforeach
+                        @php
+                            $imageUrl = $product->getFirstMediaUrl('products') ?: 'https://via.placeholder.com/269x200';
+                        @endphp
+                        <x-product-card
+                            image="{{ asset($imageUrl) }}"
+                            discount="50%"
+                            title="{{ $product->name }}"
+                            distance="1.05 km"
+                            store="{{ $product->store->name }}"
+                            rating="5.0"
+                            reviews="10"
+                            originalPrice="{{ $product->price }}"
+                            discountedPrice="{{ $product->discounted_price }}"
+                            id="{{ $product->id }}"
+                        />
+                    @endforeach
         </div>
       </div>
     </div>
