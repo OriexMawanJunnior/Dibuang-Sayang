@@ -18,14 +18,55 @@
     
     {{-- Image placeholder --}}
     
-        <div class="relative  z-0 mt-5  bg-gray-200 h-[800px] sm:flex hidden items-center rounded-lg justify-center ">
-            <span class="text-gray-400 text-4xl">Image Placeholder</span>
+        <!-- <div class="relative  z-0 mt-5 h-[500px] sm:flex hidden items-center rounded-lg justify-center ">
+          <img src="img/sayangdibuang2.jpg" alt="">
+          <span class="text-gray-400 text-4xl">Image Placeholder</span>
+        </div> -->
+        <!-- <div class="flex flex-wrap justify-center">
+  <figure class="image-text-container relative">
+    <a href="/workspace?search=coworking">
+      <img class="h-[550px] rounded-t-lg" src="img/sayangdibuang2.jpg" alt="kategori1" />
+    </a>
+    <figcaption class="absolute bottom-6 left-1/2 transform -translate-x-1/2 text-center  font-[22px] text-white">
+      <p>Coworking (Private)</p>
+    </figcaption>
+  </figure>
+</div> -->
+
+<div class="relative h-[550px] font-['Quicksand']">
+        <!-- Background image -->
+        <div class="absolute inset-0 bg-cover bg-center" style="background-image: url('img/sayangdibuang2.jpg'); opacity: 0.3;"></div>
+        <!-- Overlay -->
+        <div class="absolute inset-0 bg-black opacity-30"></div>
+        <!-- Content -->
+        <div class="relative flex pt-16 pl-10">
+            <h1 class="text-[70px] font-bold text-[#374375]">Sustainability Starts on <span class="text-black"><br>Your Plate</span></h1>
         </div>
+        <div class="relative flex pt-16 pl-10">
+            <h1 class="text-[25px] font-bold text-black">Dukung pelestarian lingkungan dengan membeli <br>
+               makanan berlebih dengan diskon 50%.
+            </h1>
+        </div>
+        <div class="relative flex pt-6 pl-10">
+          <div class="rounded-[10px] bg-[#374375] hover:bg-indigo-950 py-3 px-10">
+            <button class="text-center text-slate-300 text-sm font-semibold font-['Quicksand'] leading-[14px]">
+                Selamatkan Makanan
+            </button>
+          </div>
+        </div>
+  
+    </div>
+</div>
+<!-- <div class="bg-cover bg-center h-[550px] font-['Quicksand']" style="background-image: url('img/sayangdibuang2.jpg'); opacity:0.3;">       
+<div class="flex pt-16 pl-10">
+            <h1 class="text-[70px] font-bold text-[#374375]">Sustainability Starts on <span class="text-black"> <br> Your Plate </span></h1>
+        </div>
+    </div>
     
-            <!-- <div class="relative   mt-[100px] ml-[275px]">
+            <div class="relative   mt-[100px] ml-[275px]">
     
             </div>
-        </div>
+        </div> -->
     <div class="flex justify-center">
         <div class="Frame47 w-[430px] h-[300px] justify-center items-center inline-flex sm:hidden">
             <div class="Banner w-[430px] h-[300px] relative">
@@ -37,7 +78,7 @@
               </div>
             </div>
           </div>
-        </div> -->
+        </div>
     
     
         <div class="p-10">
@@ -195,7 +236,7 @@
                 <div class="text-[#895159] text-[25px] font-normal font-['Quicksand'] flex justify-center">Pengalaman mereka bersama 
                 <span class="text-[#895159] text-[25px] font-bold font-['Quicksand']"> SayangDibuang</span>
                 </div>
-                <div class="flex justify-between gap-5 mt-10">
+                <div class="flex justify-between gap-5 mt-10 font-['Quicksand']">
                   <div class="bg-[#DFAEA1] rounded-[10px] px-10 py-24">
                     <p class="text-black text-[20px] font-normal text-center">“Suka banget sama aplikasinya! bisa dapet makanan enak tapi harganya murah >_<”</p>
                     <p class="text-black text-[20px] font-normal text-center">~ Sasha ~</p>
