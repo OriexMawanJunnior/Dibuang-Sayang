@@ -88,6 +88,7 @@
           <div class="text-indigo-900 text-[25px] font-normal font-['Quicksand'] mb-8">
               Lihat sekitar, ada makanan yang bisa kita selamatkan!
           </div>
+
           <div class="flex justify-center items-center ">
             <div class="rounded-[10px] bg-[#374375] hover:bg-indigo-950 py-3 px-10">
                 <button class="text-center text-slate-300 text-sm font-semibold font-['Quicksand'] leading-[14px]">
@@ -98,7 +99,6 @@
     </div>
 </div>
 
-          
         </div>
       </div>
     </div>

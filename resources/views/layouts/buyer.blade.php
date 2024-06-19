@@ -4,18 +4,25 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="csrf-token" content="{{ csrf_token() }}">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <script type="text/javascript"
+                src="https://app.sandbox.midtrans.com/snap/snap.js"
+                data-client-key="SB-Mid-client-Y29P5aKJaxV45u7L"></script>
 
         <title>{{ config('app.name', 'Sayang Dibuang') }}</title>
 
         <!-- Fonts -->
-        <link rel="preconnect" href="https://fonts.bunny.net">
+
         <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap" rel="stylesheet">
         <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.css" rel="stylesheet">
+
 
         <!-- Scripts -->
         @vite(['resources/css/app.css', 'resources/js/app.js'])
     </head>
-    <body class="font-sans antialiased" style="background-color: #FFFCF5;">
+
+    <body class="font-['Quicksand']" style="background-color: #FFFCF5;">
+
         <div class="h-full bg-gray-100 dark:bg-gray-900">
             @include('layouts.navigation')
             

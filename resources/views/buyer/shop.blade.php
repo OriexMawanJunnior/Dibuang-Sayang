@@ -2,6 +2,7 @@
     <div class="Banner flex justify-center font-['Quicksand']">
         <div class="w-full h-[250px] bg-[#DFAEA1] flex flex-col items-start px-16">
             <div class="text-indigo-900 text-[30px] font-bold pt-36">Shop Page</div>
+
         </div>
     </div>
 
@@ -14,8 +15,8 @@
 
     <div class="Search flex justify-center mt-8 font-['Quicksand'] px-5">
         <div class="w-full max-w-screen-lg h-[60px] flex items-center">
-            <div class="flex-grow flex items-center bg-white rounded-lg shadow border border-neutral-400 px-4">
-                <input type="text" placeholder="Cari makanan untuk diselamatkan" class="flex-grow bg-transparent outline-none text-lg text-black/50">
+            <div class="w-[60px] h-[60px] bg-white rounded-full border border-black flex items-center justify-center ml-4">
+                <!-- Icon Location -->
             </div>
             <!-- <div class="w-[60px] h-[60px] bg-white rounded-full border border-black flex items-center justify-center ml-4"> -->
                 <!-- Icon Cart -->
@@ -276,10 +277,84 @@
                             </button>
                         </div>
                     </form>
+
                 </div>
             </div>
         </div>
     </div>
+    <div class="flex flex-row">
+
+
+        <div class="flex justify-center mt-8">
+            <div class="w-full max-w-xs">
+                <div class="flex flex-col space-y-6">
+                    <div class="text-xl font-medium">Jarak</div>
+                    <div class="flex items-center">
+                        <div class="w-full bg-gray-200 h-2 rounded-lg">
+                            <div class="bg-indigo-600 h-full rounded-lg" style="width: 50%;"></div>
+                        </div>
+                        <div class="ml-4 text-xl font-medium">4.8 km</div>
+                    </div>
+                    <div class="text-xl font-medium">Harga</div>
+                    <div class="space-y-4">
+                        <div class="flex items-center">
+                            <input type="checkbox" class="form-checkbox rounded-sm border-gray-400">
+                            <span class="ml-4 text-lg">Dibawah Rp 15.000</span>
+                        </div>
+                        <div class="flex items-center">
+                            <input type="checkbox" class="form-checkbox rounded-sm border-gray-400">
+                            <span class="ml-4 text-lg">Rp 15.000 - Rp 25.000</span>
+                        </div>
+                        <div class="flex items-center">
+                            <input type="checkbox" class="form-checkbox rounded-sm border-gray-400">
+                            <span class="ml-4 text-lg">Rp 25.000 - Rp 40.000</span>
+                        </div>
+                        <div class="flex items-center">
+                            <input type="checkbox" class="form-checkbox rounded-sm border-gray-400">
+                            <span class="ml-4 text-lg">Diatas Rp 40.000</span>
+                        </div>
+                    </div>
+                    <div class="text-xl font-medium">Kategori</div>
+                    <div class="flex flex-wrap gap-4">
+                        <button class="bg-slate-300 text-indigo-900 text-sm font-semibold rounded-lg px-4 py-2">Makanan Vegan</button>
+                        <button class="bg-indigo-900 text-slate-300 text-sm font-semibold rounded-lg px-4 py-2">Makanan Berat</button>
+                        <button class="bg-slate-300 text-indigo-900 text-sm font-semibold rounded-lg px-4 py-2">Roti dan Kue</button>
+                        <button class="bg-slate-300 text-indigo-900 text-sm font-semibold rounded-lg px-4 py-2">Bahan Makanan</button>
+                        <button class="bg-slate-300 text-indigo-900 text-sm font-semibold rounded-lg px-4 py-2">Buah dan Sayur</button>
+                        <button class="bg-slate-300 text-indigo-900 text-sm font-semibold rounded-lg px-4 py-2">Camilan</button>
+                        <button class="bg-slate-300 text-indigo-900 text-sm font-semibold rounded-lg px-4 py-2">Minuman</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    
+        <div class="flex justify-center mt-8">
+            <div class="w-full max-w-screen-lg flex flex-col space-y-8">
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                    @foreach($products as $product)
+                        @php
+                            $imageUrl = $product->getFirstMediaUrl('products') ?: 'https://via.placeholder.com/269x200';
+                        @endphp
+                        <x-product-card
+                            image="{{ asset($imageUrl) }}"
+                            discount="50%"
+                            title="{{ $product->name }}"
+                            distance="1.05 km"
+                            store="{{ $product->store->name }}"
+                            rating="5.0"
+                            reviews="10"
+                            originalPrice="{{ $product->price }}"
+                            discountedPrice="{{ $product->discounted_price }}"
+                            id="{{ $product->id }}"
+                        />
+                    @endforeach
+                </div>
+                <button class="w-full max-w-xs mx-auto bg-indigo-900 text-slate-300 text-sm font-semibold rounded-lg py-3">Tampilkan Lebih Banyak</button>
+            </div>
+        </div>
+    </div>
+
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.js"></script>
+
 </x-buyer-layout>

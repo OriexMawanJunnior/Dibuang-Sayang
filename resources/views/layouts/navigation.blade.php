@@ -5,8 +5,10 @@
 
         <!-- Navbar Links -->
         <nav>
-            <ul class="flex space-x-8 items-center font-['Quicksand']">
-                <li><a href="/" class="text-[#895159] font-bold">Beranda</a></li>
+
+            <ul class="flex space-x-8">
+                <li><a href="{{route('dashboard')}}" class="text-[#895159] font-bold">Beranda</a></li>
+
                 <li><a href="{{route('shop')}}" class="hover:text-[#895159] hover:font-bold">Belanja</a></li>
                 <li><a href="#" class="hover:text-[#895159] hover:font-bold">Tentang Kami</a></li>
                 <li><a href="#" class="hover:text-[#895159] hover:font-bold">Mitra</a></li>
