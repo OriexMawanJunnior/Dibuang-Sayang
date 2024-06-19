@@ -28,6 +28,7 @@ Route::middleware(['auth', 'role:seller'])->name('seller.')->prefix('seller')->g
     Route::resource('/product', ProductController::class);
 });
 
+Route::post('/payment', [PaymentController::class, 'pay'])->name('pay');
 
 Route::middleware(['auth', 'role:buyer'])->group(function () {
     Route::get('/dashboard', [BuyerController::class, 'index'])->name('dashboard');
@@ -35,9 +36,8 @@ Route::middleware(['auth', 'role:buyer'])->group(function () {
     Route::get('/search', [BuyerController::class, 'search'])->name('shop.search');
     Route::get('/shop/{id}', [BuyerController::class, 'show'])->name('products.show');
     Route::get('/payment/{id}', [PaymentController::class, 'payment'])->name('payment');
-    Route::post('/payment', [PaymentController::class, 'pay'])->name('pay');
+    
 });
-
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');

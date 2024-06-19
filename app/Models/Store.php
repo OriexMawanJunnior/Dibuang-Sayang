@@ -36,4 +36,9 @@ class Store extends Model implements hasMedia
     {
         return $this->hasMany(Product::class);
     }
+
+    public function orders()
+    {
+        return $this->hasMany(Order::class);
+    }
 }

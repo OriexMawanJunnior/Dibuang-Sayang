@@ -3,54 +3,88 @@
 namespace App\Http\Controllers;
 
 use Midtrans\Snap;
+use App\Models\User;
 use Midtrans\Config;
 use App\Models\Payment;
 use App\Models\Product;
+use App\Services\Midtrans;
 use Illuminate\Http\Request;
+use Illuminate\Http\JsonResponse;
+use App\Traits\MidtransPaymentTrait;
+use Illuminate\Support\Facades\Auth;
 
 class PaymentController extends Controller
 {
     public function payment($id){
         $product = Product::findOrFail($id);
-        return view('buyer.payment', compact('product'));
+        $user = Auth::user();
+        return view('buyer.payment', compact('product', 'user'));
     }
     
+    use MidtransPaymentTrait;
+
     public function pay(Request $request)
     {
-        // Set Midtrans configuration
-        Config::$serverKey = env('MIDTRANS_SERVER_KEY');
-        Config::$isProduction = false; // Set to true for production
-        Config::$isSanitized = true;
-        Config::$is3ds = true;
+        $user = User::find($request->user_id);
 
-        $transaction = new Payment();
-        $transaction->user_id = $request->user()->id;
-        $transaction->product_id = $request->product_id;
-        $transaction->status = 'pending';
-        $transaction->payment_type = $request->payment_type;
-        $transaction->payment_channel = $request->payment_channel;
-        $transaction->total_amount = $request->total_amount;
-        $transaction->transaction_status = 'pending';
-        $transaction->transaction_time = now();
-        $transaction->save();
+        /** @var Product $product */
+        $product = Product::find($request->product_id);
 
-        $params = [
-            'transaction_details' => [
-                'order_id' => $transaction->id,
-                'gross_amount' => $transaction->total_amount,
-            ],
-            'customer_details' => [
-                'first_name' => $request->user()->name,
-                'email' => $request->user()->email,
-            ],
-        ];
+        $payloads = $this->generateSnapTransactionPayloads($user, $product, $request);
 
-        $snapToken = Snap::getSnapToken($params);
+        // Set blanket expiry (both page and payment expiry) on sandbox mode for testing
+        if (!config('midtrans.is_production')) {
+            $payloads['expiry'] = [
+                'start_time' => now()->format('Y-m-d H:i:s O'),
+                'duration' => config('midtrans.snap_expiration_duration'),
+                'unit' => 'minute'
+            ];
+        }
 
-        $transaction->transaction_id = $params['transaction_details']['order_id'];
-        $transaction->token = $snapToken;
-        $transaction->save();
+        $snapUrl = config('midtrans.is_production') ? config('midtrans.snap_production_base_url') : config('midtrans.snap_sandbox_base_url');
 
-        return view('buyer.payment', compact('snapToken'));
+        try {
+            $response = Midtrans::post(
+                $snapUrl . '/transactions',
+                config('midtrans.server_key'),
+                $payloads
+            );
+        } catch (\Exception $e) {
+            return new JsonResponse([
+                'status' => 'error',
+                'message' => $e->getMessage(),
+                'payloads' => $payloads
+            ], 500);
+        }
+
+        $responseCode = $response->getStatusCode();
+        $responseBody = json_decode($response->getBody()->getContents());
+        $responseBody->order_id = $payloads['transaction_details']['order_id'];
+
+        $sum = $request->stock;
+        $totalPrice = $sum * $product->price;
+
+        try {
+            Payment::create([
+                'id' => $payloads['transaction_details']['order_id'],
+                'user_id' => $user->id,
+                'product_id' => $product->id,
+                'token' => $responseBody->token,
+                'total_amount' => $totalPrice,
+                'status' => Payment::PAYMENT_STATUS_STARTED,
+            ]);
+
+            return new JsonResponse([
+                'code' => $responseCode,
+                'status' => 'success',
+                'message' => 'Transaction is created successfully',
+                'data' => $responseBody
+            ], $responseCode);
+        } catch (\Exception $e) {
+            return new JsonResponse([
+                'status' => 'error',
+                'message' => $e->getMessage(),
+            ], 500);
+        }
     }
 }
