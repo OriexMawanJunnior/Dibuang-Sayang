@@ -15,6 +15,7 @@
         "vite": "^4.0.0"
     },
     "dependencies": {
-        "@googlemaps/js-api-loader": "^1.16.6"
+        "@googlemaps/js-api-loader": "^1.16.6",
+        "flowbite": "^2.3.0"
     }
 }

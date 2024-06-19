@@ -22,7 +22,6 @@ return new class extends Migration
             $table->unsignedBigInteger('store_id')->nullable();
             $table->rememberToken();
             $table->timestamps();
-            $table->foreign('store_id')->references('id')->on('stores')->onDelete('set null');
         });
     }
 

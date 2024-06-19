@@ -12,7 +12,7 @@
         <!-- Scripts -->
         @vite(['resources/css/app.css', 'resources/js/app.js'])
     </head>
-    <body class="font-['Quicksand'] bg-[#FFFCF5]" >
+    <body class="font-['Quicksand']" style="background-color: #FFFCF5;" >
         <div class="flex justify-center item-center">
             {{ $slot }}
         </div>

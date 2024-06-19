@@ -9,17 +9,13 @@ class BuyerController extends Controller
 {
     public function index()
     {
-        $products = Product::whereHas('store.user', function ($query) {
-            $query->role('seller');
-        })->get();
+        $products = Product::all();
 
         return view('dashboard', compact('products'));
     }
 
     public function showShop(){
-        $products = Product::whereHas('store.user', function ($query) {
-            $query->role('seller');
-        })->get();
+        $products = Product::all();
         return view('buyer.shop', compact('products'));
     }
 

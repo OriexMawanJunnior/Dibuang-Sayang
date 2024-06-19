@@ -1,12 +1,14 @@
-<div class="lg:sticky lg:top-0 bg-white lg:w-screen text-black lg:p-1 z-10 shadow-md hidden sm:flex">
+<div class="lg:sticky lg:top-0 bg-white text-black lg:p-1 z-10 shadow-md hidden sm:flex">
     <div class="container mx-auto flex justify-between items-center">
         <!-- Logo -->
         <img src="img/logo.png" class="w-20 h-20" alt="Logo">
 
         <!-- Navbar Links -->
         <nav>
+
             <ul class="flex space-x-8">
                 <li><a href="{{route('dashboard')}}" class="text-[#895159] font-bold">Beranda</a></li>
+
                 <li><a href="{{route('shop')}}" class="hover:text-[#895159] hover:font-bold">Belanja</a></li>
                 <li><a href="#" class="hover:text-[#895159] hover:font-bold">Tentang Kami</a></li>
                 <li><a href="#" class="hover:text-[#895159] hover:font-bold">Mitra</a></li>
@@ -14,7 +16,7 @@
                 <li><a href="faq" class="hover:text-[#895159] hover:font-bold">FAQ</a></li>
                 <li class="relative">
                     <button type="button" class="focus:outline-none" onclick="toggleDropdown()">
-                        <img src="img/profile.png" class="w-10 h-10 alt="Profile">
+                        <img src="img/profile.png" class="w-10 h-10" alt="Profile">
                     </button>
                     <ul id="dropdown" class="absolute hidden bg-white shadow-lg rounded mt-2 py-1 w-32 right-0">
                         @auth
