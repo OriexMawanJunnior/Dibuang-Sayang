@@ -73,14 +73,14 @@
               <img class="Banner w-[430px] h-[300px] left-0 top-0 absolute" src="https://via.placeholder.com/430x300" />
               <div class="DukungPelestarianLingkunganDenganMembeliMakananBerlebihDenganDiskon50 left-[32px] top-[133px] absolute text-black text-[15px] font-semibold font-['Quicksand']">Dukung pelestarian lingkungan <br/>dengan membeli makanan berlebih <br/>dengan diskon 50%.</div>
               <div class="SustainabilityStartsOnYourPlate left-[32px] top-[39px] absolute"><span class="text-indigo-900 text-3xl font-bold font-['Quicksand']">Sustainability Starts <br/>on</span><span class="text-black text-3xl font-bold font-['Quicksand']"> Your Plate</span></div>
-              <div class="PrimaryButton w-[150px] h-[52px] px-3 left-[32px] top-[209px] absolute bg-indigo-900 rounded-[10px] flex-col justify-center items-center gap-[5px] inline-flex">
+              <a href="{{route('shop')}}" class="PrimaryButton w-[150px] h-[52px] px-3 left-[32px] top-[209px] absolute bg-indigo-900 rounded-[10px] flex-col justify-center items-center gap-[5px] inline-flex">
                 <div class="SeeMore text-center text-slate-300 text-xs font-semibold font-['Quicksand'] leading-[14px]">Selamatkan Makanan</div>
-              </div>
+              </a>
             </div>
           </div>
         </div>
     
-    
+        @auth
         <div class="p-10">
           <div class="text-indigo-900 text-[35px] font-bold font-['Quicksand']">
               Di Sekitarmu
@@ -88,7 +88,22 @@
           <div class="text-indigo-900 text-[25px] font-normal font-['Quicksand'] mb-8">
               Lihat sekitar, ada makanan yang bisa kita selamatkan!
           </div>
-
+          <div class="flex flex-row">
+          @foreach($products as $product)
+              @php
+                  $imageUrl = $product->getFirstMediaUrl('products') ?: 'https://via.placeholder.com/269x200';
+              @endphp
+              <x-product-card
+                  image="{{ asset($imageUrl) }}"
+                  discount="{{$discount = 0.5}}"
+                  title="{{ $product->name }}"
+                  store="{{ $product->store->name }}"
+                  originalPrice="{{ $product->price }}"
+                  discountedPrice="{{ $product->price * $discount }}"
+                  id="{{ $product->id }}"
+              />
+          @endforeach
+          </div>
           <div class="flex justify-center items-center ">
             <div class="rounded-[10px] bg-[#374375] hover:bg-indigo-950 py-3 px-10">
                 <button class="text-center text-slate-300 text-sm font-semibold font-['Quicksand'] leading-[14px]">
@@ -96,6 +111,7 @@
                 </button>
             </div>
           </div>
+          @endauth
     </div>
 </div>
 

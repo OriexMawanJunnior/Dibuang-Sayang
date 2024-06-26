@@ -15,7 +15,7 @@ class BuyerController extends Controller
     }
 
     public function showShop(){
-        $products = Product::all();
+        $products = Product::with('store')->get();
         return view('buyer.shop', compact('products'));
     }
 

@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\BuyerController;
@@ -30,7 +31,7 @@ Route::middleware(['auth'])->name('seller.')->prefix('seller')->group(function (
 
 Route::post('/payment', [PaymentController::class, 'pay'])->name('pay');
 
-Route::middleware(['auth'])->group(function () {
+Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('/dashboard', [BuyerController::class, 'index'])->name('dashboard');
     Route::get('/shop', [BuyerController::class, 'showShop'])->name('shop');
     Route::get('/search', [BuyerController::class, 'search'])->name('shop.search');

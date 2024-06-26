@@ -16,9 +16,12 @@ use Illuminate\Support\Facades\Auth;
 class PaymentController extends Controller
 {
     public function payment($id){
-        $product = Product::findOrFail($id);
+        $product = Product::with('store')->findOrFail($id);
         $user = Auth::user();
-        return view('buyer.payment', compact('product', 'user'));
+        $store = $product->store;
+
+        // Compact product, user, dan store ke dalam view
+        return view('buyer.payment', compact('product', 'user', 'store'));
     }
     
     use MidtransPaymentTrait;
@@ -29,6 +32,10 @@ class PaymentController extends Controller
 
         /** @var Product $product */
         $product = Product::find($request->product_id);
+        
+        $request->validate([
+            'stock' => 'required|numeric|min:1',
+        ]);
 
         $payloads = $this->generateSnapTransactionPayloads($user, $product, $request);
 

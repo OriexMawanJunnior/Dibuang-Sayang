@@ -13,9 +13,9 @@
             <div>
                 <a class="font-bold">Follow US</a>
                 <div class="flex space-x-11 mt-2">
-                    <a href=""><img class="w-6 h-6" src="img/logo-insta.png" alt="">
-                    <a href=""><img class="w-6 h-6" src="img/logo-x.png" alt="">
-                    <a href=""><img class="w-6 h-6" src="img/logo-tiktok.png" alt="">
+                    <a href=""><img class="w-6 h-6" src="{{asset('img/logo-insta.png')}}" alt="">
+                    <a href=""><img class="w-6 h-6" src="{{asset('img/logo-x.png')}}" alt="">
+                    <a href=""><img class="w-6 h-6" src="{{asset('img/logo-tiktok.png')}}" alt="">
                 </div>
             </div>
         </div>

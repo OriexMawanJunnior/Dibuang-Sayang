@@ -35,7 +35,7 @@ class AuthenticatedSessionController extends Controller
        } elseif ($user->hasRole('seller')) {
            return redirect()->route('seller.dashboard');
        } elseif ($user->hasRole('buyer')) {
-           return redirect()->route('buyer.dashboard');
+           return redirect()->route('dashboard');
        }
 
         return redirect()->intended(RouteServiceProvider::HOME);
